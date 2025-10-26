@@ -29,7 +29,7 @@ def create_server():
     """Create and configure the MCP server."""
 
     # Create your FastMCP server as usual
-    server = FastMCP("Say Hello")
+    server = FastMCP("Say Hello Secure")
 
     # Add a tool
     @server.tool()
@@ -40,8 +40,9 @@ def create_server():
 
         # In real apps, use token for API requests:
         # requests.get(url, headers={"Authorization": f"Bearer {session_config.access_token}"})
-        # if not session_config.access_token:
-        #     return "Error: Access token required"
+        # Token check
+        if session_config.access_token != "supersecrettoken123":
+            return "Unauthorized: Invalid access token"
 
         # Create greeting based on pirate mode
         if session_config.pirate_mode:
@@ -50,14 +51,20 @@ def create_server():
             return f"Hello Hello Hello Hello, {name}!"
 
     @server.tool()
-    def my_tool(arg: str, ctx: Context) -> str:
-        """my_tool"""
-        # Access session-specific config via context
-        config = ctx.session_config
-        # Use config values to customize behavior
-        if config.api_key:
-            # Make authenticated API calls
-            pass
+    def get_secret_data(ctx: Context) -> str:
+        token = ctx.session_config.access_token
+        if token != "supersecrettoken123":
+            return "Unauthorized"
+        return "Sensitive information: [TOP SECRET]"
+
+    @server.tool()
+    def get_data(ctx: Context) -> str:
+        api_key = getattr(ctx.session_config, "api_key", None)
+        if api_key != "abc-123":
+            return "Invalid API Key"
+        return "Authorized access!"
+
+
 
     # Add a resource
     @server.resource("history://hello-world")
