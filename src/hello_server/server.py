@@ -45,9 +45,9 @@ def create_server():
 
         # Create greeting based on pirate mode
         if session_config.pirate_mode:
-            return f"Ahoy, {name}!"
+            return f"Ahoy Ahoy Ahoy Ahoy, {name}!"
         else:
-            return f"Hello, {name}!"
+            return f"Hello Hello Hello Hello, {name}!"
 
     @server.tool()
     def my_tool(arg: str, ctx: Context) -> str:
@@ -65,7 +65,7 @@ def create_server():
         return (
             '"Hello, World" first appeared in a 1972 Bell Labs memo by '
             "Brian Kernighan and later became the iconic first program "
-            "for beginners in countless languages."
+            "for beginners in countless languages. 한글추가"
         )
 
     # Add a prompt
