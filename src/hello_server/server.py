@@ -34,7 +34,7 @@ def create_server():
     # Add a tool
     @server.tool()
     def hello(name: str, ctx: Context) -> str:
-        """Say hello to someone."""
+        """Say hello to someone.222"""
         # Access session-specific config through context
         session_config = ctx.session_config
 
@@ -51,6 +51,7 @@ def create_server():
 
     @server.tool()
     def my_tool(arg: str, ctx: Context) -> str:
+        """my_tool"""
         # Access session-specific config via context
         config = ctx.session_config
         # Use config values to customize behavior
