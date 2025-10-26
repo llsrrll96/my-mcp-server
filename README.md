@@ -1,5 +1,7 @@
 # my-mcp-server
 
+[![smithery badge](https://smithery.ai/badge/@llsrrll96/my-mcp-server)](https://smithery.ai/server/@llsrrll96/my-mcp-server)
+
 An MCP server built with [Smithery CLI](https://smithery.ai/docs/getting_started/quickstart_build_python)
 
 ## Prerequisites
@@ -7,6 +9,22 @@ An MCP server built with [Smithery CLI](https://smithery.ai/docs/getting_started
 - **Smithery API key**: Get yours at [smithery.ai/account/api-keys](https://smithery.ai/account/api-keys)
 
 ## Getting Started
+
+### Installing via Smithery
+
+To install Say Hello automatically via [Smithery](https://smithery.ai/server/@llsrrll96/my-mcp-server):
+
+```bash
+npx -y @smithery/cli install @llsrrll96/my-mcp-server
+```
+
+### Installing via Smithery (local)
+
+1. Run `smithery dev` to start your MCP server locally.
+2. Copy the endpoint URL `http://localhost:1382` into your Claude app to connect.
+3. Try sending the request `Say hello to John` to test the example tool.
+
+### Testing locally
 
 1. Run the server:
    ```bash
